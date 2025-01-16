@@ -28,6 +28,14 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
+
+.chat-box .chat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 .chat-box .chat {
   height: 100%;
   padding: 1rem;
@@ -35,34 +43,83 @@ h1 {
   overflow-y: scroll;
 }
 
-.chat-box .chat ul li {
-  padding: 0.5rem 0rem;
+.chat-box .chat .chat-item {
+  position: relative;
   border-top-left-radius: 10px;
-
+  display: flex;
+  gap: 6px;
+  align-items: center;
   margin-bottom: 1rem;
   background-color: #f1f1f1;
-  position: relative;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  transition: ease 0.5s;
+  animation-name: slide-in;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+.right-side {
+  display: flex;
+  align-items: center;
+}
+.action {
+  display: none;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+  animation-name: slide-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.action .edit,
+.action .delete {
+  background-color: #ffa600;
+  color: #fff;
+  border-top-left-radius: 10px;
+  padding: 1rem 1rem;
+  font-size: 0.8rem;
+}
+.action .delete {
+  background-color: #dc3545;
+}
+
+@keyframes slide-in {
+  from {
+    translate: -50vw 0;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
+}
+
+.chat-box .chat .chat-item:hover {
+  border: 0.5px solid white;
+}
+.chat-box .chat .chat-item:hover .action {
+  display: block;
+}
+.chat-box .chat .chat-item:hover .right-side {
+  opacity: 0.6;
+  filter: grayscale(1);
 }
 
 .date,
 .time {
-  position: absolute;
-  right: 0;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   opacity: 0.3;
   padding: 0.2rem 0.5rem;
 }
 
-.date {
-  top: 0;
-}
-.time {
-  bottom: 0;
-}
-
-.chat-box .chat li span {
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+.chat-box .chat .chat-item span {
+  padding: 1rem 1rem;
+  font-size: 0.8rem;
+  line-height: 2.5;
 }
 
 .from {
@@ -89,6 +146,20 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation-name: scale;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes scale {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 1;
+  }
 }
 
 form {

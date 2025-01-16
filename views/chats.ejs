@@ -10,20 +10,37 @@
     <h1>Mini chats</h1>
     <div class="container">
       <div class="chat-box">
+        <div class="chat-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png" alt="" width="50" />
+        </div>
         <div class="chat">
-          <ul>
-            <% for(let chat of chats){ %>
-            <li>
-              <p class="date">
-                <%= chat.date.toString().split(" ").slice(1,4).join("-") %>
-              </p>
-              <span class="from"><%= chat.from %></span>
-              <span class="message"><%=chat.msg %></span>
-              <span class="to"><%=chat.to %></span>
-              <p class="time"><%= chat.date.toString().split(" ")[4] %></p>
-            </li>
-            <% } %>
-          </ul>
+          <% for(let chat of chats){ %>
+            
+          <div class="chat-item">
+            <div class="action">
+              <a class="edit" href="/edit/<%= chat._id %>">Edit</a>
+              <a class="delete" href="/delete/<%= chat._id %>">Delete</a>
+            </div>
+            <div class="right-side">
+              
+              <div class="chat-content">
+                <span class="from"><%= chat.from %></span>
+                <span class="message"><%=chat.msg %></span>
+                <span class="to"><%=chat.to %></span>
+              </div>
+
+              <div class="dateTime">
+                <p class="date">
+                  <%= chat.date.toString().split(" ").slice(1,4).join("-") %>
+                <p class="time"><%= chat.date.toString().split(" ")[4] %></p>
+  
+                </p>
+              </div>
+            </div>
+            
+            
+          </div>
+          <% } %>
         </div>
       </div>
 
