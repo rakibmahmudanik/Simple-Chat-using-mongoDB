@@ -75,6 +75,12 @@ app.patch("/:id", async (req, res) => {
   res.redirect("/");
 });
 
+app.delete("/:id", async (req, res) => {
+  let { id } = req.params;
+  await Chat.findByIdAndDelete(id);
+
+  res.redirect("/");
+});
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });

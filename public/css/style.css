@@ -16,7 +16,7 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   background-color: #f1f1f1;
 }
 
@@ -75,17 +75,24 @@ h1 {
 }
 
 .action .edit,
-.action .delete {
+.action form button {
   background-color: #ffa600;
   color: #fff;
-  border-top-left-radius: 10px;
-  padding: 1rem 1rem;
+  padding: 0.5rem 0.5rem;
   font-size: 0.8rem;
-}
-.action .delete {
-  background-color: #dc3545;
+  cursor: pointer;
 }
 
+.action .edit {
+  border-top-left-radius: 10px;
+}
+.action form button {
+  background-color: #dc3545;
+  border-top-right-radius: 10px;
+}
+.action form button {
+  border: none;
+}
 @keyframes slide-in {
   from {
     translate: -50vw 0;
@@ -102,7 +109,8 @@ h1 {
   border: 0.5px solid white;
 }
 .chat-box .chat .chat-item:hover .action {
-  display: block;
+  display: flex;
+  gap: 3px;
 }
 .chat-box .chat .chat-item:hover .right-side {
   opacity: 0.6;
@@ -117,7 +125,7 @@ h1 {
 }
 
 .chat-box .chat .chat-item span {
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 0.8rem;
   line-height: 2.5;
 }
@@ -162,7 +170,7 @@ h1 {
   }
 }
 
-form {
+.send-box form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,32 +180,32 @@ form {
   height: 100%;
 }
 
-form input {
+.send-box form input {
   width: 80%;
   height: 2rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 0.5rem;
 }
-form input[name="from"] {
+.send-box form input[name="from"] {
   background-color: #007bff89;
   color: #fff;
 }
-form input[name="msg"] {
+.send-box form input[name="msg"] {
   background-color: #f1f1f1;
 }
 
-form input[name="to"] {
+.send-box form input[name="to"] {
   background-color: #28a74689;
   color: #fff;
 }
-form input[name="from"]::placeholder {
+.send-box form input[name="from"]::placeholder {
   color: #fff;
 }
-form input[name="to"]::placeholder {
+.send-box form input[name="to"]::placeholder {
   color: #fff;
 }
-form button {
+.send-box form button {
   width: 80%;
   height: 2rem;
   border: none;

@@ -19,7 +19,9 @@
           <div class="chat-item">
             <div class="action">
               <a class="edit" href="/edit/<%= chat._id %>">Edit</a>
-              <a class="delete" href="/delete/<%= chat._id %>">Delete</a>
+              <form action="/<%= chat._id %>?_method=DELETE" method="post">
+              <button class="delete">Delete</button>
+              </form>
             </div>
             <div class="right-side">
               
