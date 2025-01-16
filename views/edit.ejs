@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Chats</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/edit_style.css" />
   </head>
   <body>
     <h1>Mini chats</h1>
@@ -16,11 +17,8 @@
         <div class="chat">
           <% for(let chat of chats){ %>
             
-          <div class="chat-item">
-            <div class="action">
-              <a class="edit" href="/edit/<%= chat._id %>">Edit</a>
-              <a class="delete" href="/delete/<%= chat._id %>">Delete</a>
-            </div>
+          <div class="edit-chat-item">
+        
             <div class="right-side">
               
               <div class="chat-content">
@@ -44,12 +42,12 @@
         </div>
       </div>
 
-      <div class="send-box">
-        <form action="/" method="POST">
-          <h3>Send Message</h3>
-          <input type="text" name="from" placeholder="From" />
-          <input type="text" name="to" placeholder="To" />
-          <input type="text" name="msg" placeholder="Message" />
+      <div class="edit-send-box">
+        <form action="/<%= singleChat._id %>?_method=PATCH" method="POST">
+          <h3>Edit Message</h3>
+          <input type="text" name="from" placeholder="From" value="<%= singleChat.from %>"/>
+          <input type="text" name="to" placeholder="To" value="<%= singleChat.to %>"/>
+          <input type="text" name="msg" placeholder="Message" value="<%= singleChat.msg %>"/>
           <button type="submit">Send</button>
         </form>
       </div>
